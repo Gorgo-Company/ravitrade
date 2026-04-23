@@ -119,6 +119,24 @@
       background:rgba(91,140,255,.08);
       font-size:13px;
     }
+    .storyboards-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 20px;
+      border:1px solid rgba(57,213,255,.34);
+      border-radius:999px;
+      color:#ffffff;
+      background:linear-gradient(90deg, rgba(57,213,255,.18), rgba(139,92,246,.16));
+      box-shadow:0 0 0 1px rgba(57,213,255,.14), 0 0 24px rgba(57,213,255,.16);
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .storyboards-pill:hover{
+      background:linear-gradient(90deg, rgba(57,213,255,.26), rgba(139,92,246,.22));
+    }
     .hero{
       display:grid;
       grid-template-columns:1.35fr .9fr;
@@ -452,14 +470,28 @@
 <body>
   <div class="shell">
     <aside class="sidebar">
+      
       <div class="brand">
-        <div class="brand-badge">◎</div>
+        <div class="brand-badge" style="width:68px;height:68px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(57,213,255,.14), rgba(139,92,246,.16));border:1px solid rgba(57,213,255,.26);box-shadow:0 0 30px rgba(91,140,255,.14);font-size:0;">
+          <svg width="44" height="44" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="sidebarBrainGrad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#39D5FF"/>
+                <stop offset="1" stop-color="#8B5CF6"/>
+              </linearGradient>
+            </defs>
+            <path d="M22 11C16.477 11 12 15.477 12 21V43C12 48.523 16.477 53 22 53H42C47.523 53 52 48.523 52 43V21C52 15.477 47.523 11 42 11H22Z" stroke="url(#sidebarBrainGrad)" stroke-width="2.5" rx="10"/>
+            <path d="M32 18V46" stroke="url(#sidebarBrainGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M26 21C26 19.343 24.657 18 23 18C21.343 18 20 19.343 20 21C20 22.657 21.343 24 23 24C24.657 24 26 25.343 26 27V31C26 32.657 24.657 34 23 34H20" stroke="url(#sidebarBrainGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M38 21C38 19.343 39.343 18 41 18C42.657 18 44 19.343 44 21C44 22.657 42.657 24 41 24C39.343 24 38 25.343 38 27V31C38 32.657 39.343 34 41 34H44" stroke="url(#sidebarBrainGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 40L28 36L32 40L36 36L40 40" stroke="url(#sidebarBrainGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div>
-          <h1>AI Options Terminal</h1>
-          <p>Business outlook and operating model</p>
+          <h1 style="margin:0;font-size:19px;letter-spacing:.4px;line-height:1.05;">AI OPTIONS</h1>
+          <p style="margin:4px 0 0;font-size:12px;letter-spacing:1.05px;font-weight:700;color:#dce8ff;">EXPOSURE TERMINAL</p>
         </div>
       </div>
-
       <nav class="nav">
         <a class="active" href="#overview">Overview</a>
         <a href="#offer">Product offer</a>
@@ -473,34 +505,21 @@
         <a href="#build">Build system link</a>
       </nav>
 
-      <div class="side-card">
-        <h4>What this page is for</h4>
-        <p>A plain-English operating view of what the app sells, what it likely costs to deliver, how monthly contribution margin scales, and which business metrics matter most.</p>
-      </div>
-
-      <div class="side-card">
-        <h4>Primary decisions on this page</h4>
-        <p>1) What gets included in the paid subscription<br>2) What monthly price makes sense<br>3) What each customer is worth after delivery cost<br>4) What scale looks like at practical subscriber counts</p>
-      </div>
     </aside>
 
     <main class="main">
+      
       <div class="topbar">
         <div>
-          <strong>Readable owner view</strong>
-          <div class="subtle">Designed to understand the app, the offer, the cost structure, and the business math without investor language.</div>
+          <strong>Complete rollout plan</strong>
+          <div class="subtle">App development, business planning, operating economics, and project scope in one organized view.</div>
         </div>
         <div class="meta">
-          <a class="pill" href="storyboards.html">Storyboards</a>
-          <span class="pill">Recurring subscription model</span>
-          <span class="pill">Comparable premium tool category</span>
-          <span class="pill">Contribution-margin focused</span>
+          <a class="storyboards-pill" href="storyboards.html">Storyboards</a>
         </div>
       </div>
-
-      <section id="overview" class="hero">
+<section id="overview" class="hero">
         <div class="panel hero-copy">
-          <div class="eyebrow">Business outlook</div>
           <h2><span class="gradient">What the app is,</span><br>what it sells, and how it can earn.</h2>
           <p>
             This app is best understood as a <strong>decision interface for active options traders</strong>. It is not selling raw market data by itself. It is selling a faster, clearer trading workflow: structure, flow, timing, and execution in one place.
@@ -515,7 +534,7 @@
               <div class="v">$149</div>
             </div>
             <div class="mini">
-              <div class="k">Estimated monthly direct cost per active user</div>
+              <div class="k">Estimated Monthly Cost Per Active User</div>
               <div class="v">$28–$66</div>
             </div>
             <div class="mini">
@@ -653,7 +672,7 @@
 
       <section id="costs" class="panel section">
         <div class="head">
-          <h3>3. Estimated monthly direct cost per active user</h3>
+          <h3>3. Estimated Monthly Cost Per Active User</h3>
           <p>This section focuses on delivery cost, not total company overhead. These are the unit-level costs that matter most when evaluating what each paid account contributes.</p>
         </div>
         <div class="content">
