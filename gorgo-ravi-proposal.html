@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Options Terminal | Project Fee & Build Value</title>
+  <style>
+    :root{
+      --bg:#06101d;
+      --panel:#0d1a2d;
+      --panel2:#10203a;
+      --text:#eaf2ff;
+      --muted:#9db0cd;
+      --cyan:#39d5ff;
+      --violet:#8b5cf6;
+      --green:#27e39d;
+      --yellow:#ffd166;
+      --red:#ff6b6b;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(57,213,255,.08), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(139,92,246,.08), transparent 28%),
+        linear-gradient(180deg, #06101d 0%, #081321 100%);
+      color:var(--text);
+      line-height:1.5;
+    }
+    .container{max-width:1500px;margin:0 auto;padding:28px}
+    .hero,.section{
+      border:1px solid rgba(57,213,255,.14);
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(13,26,45,.95), rgba(9,19,33,.95));
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+      overflow:hidden;
+    }
+    .hero-inner,.section-inner{padding:30px}
+    .eyebrow{
+      color:var(--cyan);
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      font-size:12px;
+      font-weight:700;
+    }
+    h1{
+      margin:8px 0 12px;
+      font-size:56px;
+      line-height:1;
+      letter-spacing:-1.5px;
+    }
+    h2{
+      margin:0 0 8px;
+      font-size:30px;
+      letter-spacing:-.6px;
+    }
+    h3{
+      margin:0 0 10px;
+      font-size:20px;
+      letter-spacing:-.2px;
+    }
+    .gradient{
+      background:linear-gradient(90deg, var(--cyan), #7bb7ff 45%, #b07cff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    p{margin:0;color:#cfdbf3}
+    .subtle{color:var(--muted)}
+    .hero-grid,.three,.two,.metrics{
+      display:grid;gap:16px;
+    }
+    .hero-grid{grid-template-columns:1.2fr .8fr;margin-top:20px}
+    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .metrics{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:16px}
+    .card{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(57,213,255,.12);
+      background:linear-gradient(180deg, rgba(16,32,58,.82), rgba(13,26,45,.82));
+    }
+    .mini{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(57,213,255,.12);
+      background:rgba(7,17,31,.52);
+    }
+    .mini .k{
+      font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px
+    }
+    .mini .v{
+      margin-top:8px;font-size:30px;font-weight:800
+    }
+    .green{color:var(--green)}
+    .yellow{color:var(--yellow)}
+    .red{color:var(--red)}
+    .pill{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(91,140,255,.08);
+      border:1px solid rgba(91,140,255,.18);
+      color:#dce8ff;
+      font-size:13px;
+      margin:4px 8px 0 0;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(57,213,255,.12);
+      margin-top:16px;
+    }
+    th,td{
+      padding:14px 16px;
+      border-bottom:1px solid rgba(57,213,255,.08);
+      text-align:left;
+      font-size:14px;
+    }
+    th{
+      color:var(--cyan);
+      background:rgba(12,23,40,.92);
+      font-weight:700;
+    }
+    tr:nth-child(even) td{background:rgba(255,255,255,.01)}
+    ul{margin:0;padding-left:18px}
+    li{margin:8px 0;color:#dbe7fb}
+    .fee-box{
+      padding:24px;
+      border-radius:22px;
+      border:1px solid rgba(39,227,157,.22);
+      box-shadow:0 0 0 1px rgba(39,227,157,.12);
+      background:linear-gradient(180deg, rgba(8,24,26,.88), rgba(10,21,37,.94));
+    }
+    .fee-box .label{
+      font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--cyan);font-weight:700;
+    }
+    .fee-box .amount{
+      font-size:64px;line-height:1;font-weight:900;margin:10px 0 12px;
+    }
+    .note{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footer{
+      padding:18px 20px 34px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media (max-width:1100px){
+      .hero-grid,.three,.two,.metrics{grid-template-columns:1fr}
+      h1{font-size:42px}
+      .fee-box .amount{font-size:48px}
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Project fee and scope value</div>
+        <h1><span class="gradient">Fair-market project fee</span><br>for the AI Options Terminal build.</h1>
+        <p>
+          This page prices the work from a practical builder’s perspective: not just coding time, but product architecture,
+          interface design, trading workflow logic, screen system design, and the complexity of delivering a premium
+          options terminal rather than a basic dashboard.
+        </p>
+
+        <div class="metrics">
+          <div class="mini">
+            <div class="k">Recommended fixed project fee</div>
+            <div class="v">$47,500</div>
+          </div>
+          <div class="mini">
+            <div class="k">Practical fair-market range</div>
+            <div class="v">$42K–$60K</div>
+          </div>
+          <div class="mini">
+            <div class="k">Market-equivalent agency value</div>
+            <div class="v green">$75K+</div>
+          </div>
+          <div class="mini">
+            <div class="k">Best pricing structure</div>
+            <div class="v">Fixed fee</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <span class="pill">Premium fintech / trading interface</span>
+          <span class="pill">Custom product architecture</span>
+          <span class="pill">Screen system + UX logic</span>
+          <span class="pill">Launch-ready MVP scope</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="hero-grid">
+          <div class="fee-box">
+            <div class="label">Recommended client-facing fee</div>
+            <div class="amount green">$47,500</div>
+            <p>
+              This is the strongest number to quote for the project as a whole if the engagement covers the
+              MVP build, complete interface system, product logic implementation, and launch-ready production setup.
+            </p>
+            <div class="note">
+              Position this as a fixed project fee for the full custom build, not as an hourly estimate.
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Why this fee makes sense</h3>
+            <ul>
+              <li>This is not a normal SaaS admin panel. It is a custom trading terminal with real-time data logic, structural analytics, and high-clarity interface work.</li>
+              <li>The value includes product design thinking, screen architecture, user workflow strategy, and custom terminal logic — not just implementation time.</li>
+              <li>The MVP alone already carries the complexity of multiple specialized screens, live market interpretation, and premium visual decision support.</li>
+              <li>The delivered product is positioned in a category where users already expect to pay premium subscription pricing for specialized tools.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>Fee breakdown</h2>
+        <p class="subtle">A clean way to explain the quote is to separate the work into major value blocks instead of vague “development hours.”</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Work block</th>
+              <th>Fee allocation</th>
+              <th>What this covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product architecture and system design</td>
+              <td>$7,500</td>
+              <td>Terminal structure, data-flow planning, feature sequencing, MVP cut, and overall app blueprint.</td>
+            </tr>
+            <tr>
+              <td>Interface and storyboard system design</td>
+              <td>$8,000</td>
+              <td>Screen logic, visual hierarchy, storyboard direction, operator workflow design, and product-level UI thinking.</td>
+            </tr>
+            <tr>
+              <td>Frontend terminal build</td>
+              <td>$12,500</td>
+              <td>Core terminal UI, chart layout, ladder views, flow-grid views, timing screens, and signal screen assembly.</td>
+            </tr>
+            <tr>
+              <td>Backend and live-data integration foundation</td>
+              <td>$11,000</td>
+              <td>Data handling foundation, API structure, WebSocket layer, scoring pipeline framing, and production integration setup.</td>
+            </tr>
+            <tr>
+              <td>Testing, refinement, deployment, and launch prep</td>
+              <td>$5,500</td>
+              <td>Fit-and-finish, bug pass, deployment hardening, launch setup, and final implementation cleanup.</td>
+            </tr>
+            <tr>
+              <td>Project management, revisions, and delivery overhead</td>
+              <td>$3,000</td>
+              <td>Scope handling, decision support, file delivery, iterations, and production coordination.</td>
+            </tr>
+            <tr>
+              <td><strong>Total recommended fee</strong></td>
+              <td><strong>$47,500</strong></td>
+              <td><strong>Fixed fee for the complete contracted MVP build and delivery package.</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          This breakdown is meant to justify the quote in a way that feels organized and credible. It also keeps the conversation anchored to business value instead of devolving into hourly bargaining.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>What the fee includes</h2>
+        <div class="three">
+          <div class="card">
+            <h3>Core product delivery</h3>
+            <ul>
+              <li>Terminal Core</li>
+              <li>Exposure Ladder</li>
+              <li>Flow Grid</li>
+              <li>Execution View</li>
+              <li>Timeline View</li>
+              <li>Signal Lock</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Design and strategy value</h3>
+            <ul>
+              <li>Screen system thinking</li>
+              <li>Feature prioritization</li>
+              <li>UI hierarchy and clarity design</li>
+              <li>Operator workflow decisions</li>
+              <li>Positioning of premium product value</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Technical build value</h3>
+            <ul>
+              <li>Architecture planning</li>
+              <li>Real-time data workflow setup</li>
+              <li>App shell and production structure</li>
+              <li>Deployment preparation</li>
+              <li>Launch-ready foundation for later phases</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>Reasonable pricing range</h2>
+        <div class="two">
+          <div class="card">
+            <h3>Too low</h3>
+            <p class="red" style="font-size:32px;font-weight:800;margin:8px 0 10px">$25K–$35K</p>
+            <ul>
+              <li>Undervalues the custom interface and product strategy work.</li>
+              <li>Frames the build like a standard dashboard instead of a premium trading product.</li>
+              <li>Leaves too little room for revisions, testing, and deployment quality.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Reasonable</h3>
+            <p class="green" style="font-size:32px;font-weight:800;margin:8px 0 10px">$42K–$60K</p>
+            <ul>
+              <li>Reflects fair-market custom software pricing for a specialized build.</li>
+              <li>Supports proper design, implementation, and launch quality.</li>
+              <li>Leaves room to quote confidently without overshooting credibility.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Strongest single quote</h3>
+          <p>
+            If you want one number that feels premium, defensible, and still reasonable, quote
+            <strong>$47,500 fixed</strong>. It is high enough to respect the real scope and low enough to feel
+            materially below what a larger agency or multi-person team would typically charge for a specialized
+            trading terminal build of this type.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>Optional payment structure</h2>
+        <div class="three">
+          <div class="card">
+            <h3>Deposit</h3>
+            <p style="font-size:30px;font-weight:800;margin:8px 0 6px">$19,000</p>
+            <p class="subtle">40% to begin architecture, design, and build.</p>
+          </div>
+          <div class="card">
+            <h3>Mid-project payment</h3>
+            <p style="font-size:30px;font-weight:800;margin:8px 0 6px">$14,250</p>
+            <p class="subtle">30% at core interface completion / major milestone.</p>
+          </div>
+          <div class="card">
+            <h3>Final payment</h3>
+            <p style="font-size:30px;font-weight:800;margin:8px 0 6px">$14,250</p>
+            <p class="subtle">30% at final delivery, deployment, and handoff.</p>
+          </div>
+        </div>
+        <div class="note">
+          This structure reduces risk, keeps momentum, and avoids carrying the full production load without staged payment.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>How to explain the number simply</h2>
+        <div class="two">
+          <div class="card">
+            <h3>Short explanation</h3>
+            <p>
+              The fee reflects a custom trading platform build, not a templated web app. It includes the
+              complete MVP system, the product design logic behind it, the live-data foundation, and the
+              launch-ready buildout required to make it usable as a premium trading tool.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Best positioning</h3>
+            <p>
+              Price it as a <strong>fixed custom product build</strong>. Do not frame it as hourly labor. The buyer is paying for a specialized system, a differentiated interface, and an organized path from concept to deployable product.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      This fee page is intentionally structured to make the quote feel organized, fair, and market-aware while still protecting the real value of the build.
+    </div>
+  </main>
+</body>
+</html>
