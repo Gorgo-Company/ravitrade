@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Options Terminal | Storyboards</title>
+<style>
+:root{
+  --bg:#06101d;
+  --panel:#0d1a2d;
+  --text:#eaf2ff;
+  --muted:#9db0cd;
+  --cyan:#39d5ff;
+  --violet:#8b5cf6;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(57,213,255,.08), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(139,92,246,.08), transparent 28%),
+    linear-gradient(180deg, #06101d 0%, #081321 100%);
+  color:var(--text);
+}
+.container{max-width:1500px;margin:0 auto;padding:28px}
+.hero{
+  border:1px solid rgba(57,213,255,.14);
+  border-radius:24px;
+  background:linear-gradient(180deg, rgba(13,26,45,.95), rgba(9,19,33,.95));
+  box-shadow:var(--shadow);
+  padding:30px;
+  margin-bottom:24px;
+}
+.eyebrow{
+  color:var(--cyan);
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  font-size:12px;
+  font-weight:700;
+}
+h1{
+  margin:8px 0 10px;
+  font-size:54px;
+  line-height:1;
+  letter-spacing:-1.4px;
+}
+.gradient{
+  background:linear-gradient(90deg, var(--cyan), #7bb7ff 45%, #b07cff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{margin:8px 0 0;color:#cfdbf3;font-size:18px;max-width:980px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{
+  border:1px solid rgba(57,213,255,.12);
+  border-radius:22px;
+  background:linear-gradient(180deg, rgba(13,26,45,.95), rgba(9,19,33,.95));
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.frame{
+  background:#07111f;
+  border-bottom:1px solid rgba(57,213,255,.12);
+  aspect-ratio:16/9;
+  display:grid;place-items:center;
+}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.copy{padding:18px 20px 20px}
+.label{
+  display:inline-block;
+  font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  color:#07111f;background:var(--cyan);padding:6px 10px;border-radius:999px;
+}
+.copy h3{margin:12px 0 8px;font-size:26px}
+.copy p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+@media (max-width:1100px){
+  .grid{grid-template-columns:1fr}
+  h1{font-size:40px}
+}
+</style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Storyboard library</div>
+      <h1><span class="gradient">AI Options Terminal</span><br>Product Storyboards</h1>
+      <p>
+        Full visual reference for the platform interface, covering entry, terminal operation, structure, flow, execution, replay, analytics, and AI-guided trading views.
+      </p>
+    </section>
+
+    <div class="grid">
+      
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 1.png" alt="Login Screen"></div>
+      <div class="copy">
+        <span class="label">Screen 01</span>
+        <h3>Login Screen</h3>
+        <p>Secure login entry for the terminal with premium branding, account access, and immediate system entry.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 2.png" alt="Terminal Core"></div>
+      <div class="copy">
+        <span class="label">Screen 02</span>
+        <h3>Terminal Core</h3>
+        <p>Primary trading workspace combining price chart, exposure ladder, and live options flow into one operating screen.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 3.png" alt="Exposure Ladder"></div>
+      <div class="copy">
+        <span class="label">Screen 03</span>
+        <h3>Exposure Ladder</h3>
+        <p>Strike-by-strike structural view centered on king node, polarity, gatekeepers, and exposure concentration.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 4.png" alt="Flow Grid"></div>
+      <div class="copy">
+        <span class="label">Screen 04</span>
+        <h3>Flow Grid</h3>
+        <p>Real-time options flow scanner showing contracts, premiums, size, NBBO position, flow score, and opening probability.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 5.png" alt="Execution View"></div>
+      <div class="copy">
+        <span class="label">Screen 05</span>
+        <h3>Execution View</h3>
+        <p>Execution-focused screen connecting levels, path targets, and trade framing for immediate decision support.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 6.png" alt="Timeline View"></div>
+      <div class="copy">
+        <span class="label">Screen 06</span>
+        <h3>Timeline View</h3>
+        <p>Time-sequenced market view showing when flow clusters, confirmation, and momentum acceleration become important.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 7.png" alt="Signal Lock"></div>
+      <div class="copy">
+        <span class="label">Screen 07</span>
+        <h3>Signal Lock</h3>
+        <p>High-confidence decision screen compressing direction, entry, stop, targets, and setup quality into one frame.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 8.png" alt="Replay Autopsy"></div>
+      <div class="copy">
+        <span class="label">Screen 08</span>
+        <h3>Replay Autopsy</h3>
+        <p>Historical session replay and trade autopsy view showing trigger sequence, confirmation, and outcome analysis.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 9.png" alt="Trade Journal &amp; Analytics"></div>
+      <div class="copy">
+        <span class="label">Screen 09</span>
+        <h3>Trade Journal &amp; Analytics</h3>
+        <p>Performance and learning screen with equity curve, trade history, setup metrics, and analytics.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 10.png" alt="AI Command Center"></div>
+      <div class="copy">
+        <span class="label">Screen 10</span>
+        <h3>AI Command Center</h3>
+        <p>AI synthesis layer surfacing market bias, top setups, recommendation quality, risk overview, and watchlist insight.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 11.png" alt="Multi-Asset Correlation Engine"></div>
+      <div class="copy">
+        <span class="label">Screen 11</span>
+        <h3>Multi-Asset Correlation Engine</h3>
+        <p>Cross-asset intelligence screen showing capital flow relationships and alignment between major symbols.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 12.png" alt="Flow Intelligence"></div>
+      <div class="copy">
+        <span class="label">Screen 12</span>
+        <h3>Flow Intelligence</h3>
+        <p>Smart money dashboard summarizing unusual flow, DTE distribution, sentiment, and historical impact.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 13.png" alt="P&amp;L Analysis"></div>
+      <div class="copy">
+        <span class="label">Screen 13</span>
+        <h3>P&amp;L Analysis</h3>
+        <p>Performance screen showing P&amp;L over time, contribution by component, and account-level profitability breakdown.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 14.png" alt="Exposure Heat Map"></div>
+      <div class="copy">
+        <span class="label">Screen 14</span>
+        <h3>Exposure Heat Map</h3>
+        <p>Heat map view of net exposure across strikes and DTE buckets for fast structural reading.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 14a.png" alt="Exposure Profile"></div>
+      <div class="copy">
+        <span class="label">Screen 14A</span>
+        <h3>Exposure Profile</h3>
+        <p>Expanded exposure analytics showing aggregate profile, maturity weighting, and key structural levels.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 15.png" alt="Terminal + Scanner Hybrid"></div>
+      <div class="copy">
+        <span class="label">Screen 15</span>
+        <h3>Terminal + Scanner Hybrid</h3>
+        <p>Combined terminal view unifying chart, ladder, and flow scanner for dense real-time operation.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 16.png" alt="Expanded Flow Scanner"></div>
+      <div class="copy">
+        <span class="label">Screen 16</span>
+        <h3>Expanded Flow Scanner</h3>
+        <p>Detailed flow-scanning screen emphasizing contract ranking, filters, probabilities, and drilldown data.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 17.png" alt="King Node Detail"></div>
+      <div class="copy">
+        <span class="label">Screen 17</span>
+        <h3>King Node Detail</h3>
+        <p>Focused breakdown of the dominant level, showing why it matters and how nearby structure supports it.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 18.png" alt="Chart + Projection Overlay"></div>
+      <div class="copy">
+        <span class="label">Screen 18</span>
+        <h3>Chart + Projection Overlay</h3>
+        <p>Chart-first terminal view with AI projection path and streamlined structural context.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 19.png" alt="Landing / Marketing Entry"></div>
+      <div class="copy">
+        <span class="label">Screen 19</span>
+        <h3>Landing / Marketing Entry</h3>
+        <p>Homepage-style entry screen introducing the platform promise, architecture, and core product positioning.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 20.png" alt="Convergence View"></div>
+      <div class="copy">
+        <span class="label">Screen 20</span>
+        <h3>Convergence View</h3>
+        <p>Confluence screen connecting flow, levels, and price behavior into a unified directional read.</p>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="frame"><img src="storyboard-images/screen 21.png" alt="Execution Edge Variant"></div>
+      <div class="copy">
+        <span class="label">Screen 21</span>
+        <h3>Execution Edge Variant</h3>
+        <p>Alternative execution-intelligence view with stronger emphasis on flow distribution, sentiment, and guided action.</p>
+      </div>
+    </section>
+    
+    </div>
+  </main>
+</body>
+</html>
