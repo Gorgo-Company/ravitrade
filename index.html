@@ -72,11 +72,12 @@
       display:grid; gap:8px;
     }
     .nav a{
-      padding:12px 14px;
+      padding:10px 12px;
       border:1px solid transparent;
-      border-radius:14px;
+      border-radius:12px;
       color:#d7e5ff;
-      font-size:14px;
+      font-size:15px;
+      line-height:1.2;
       transition:.18s ease;
       background:transparent;
     }
@@ -331,11 +332,111 @@
       font-size:13px;
       padding:10px 4px 30px;
     }
+
+    .storyboard-carousel{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(57,213,255,.12);
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(16,32,58,.55), rgba(10,21,37,.55));
+      padding:18px 18px 56px;
+    }
+    .carousel-track{
+      display:flex;
+      transition:transform .35s ease;
+      will-change:transform;
+    }
+    .carousel-slide{
+      min-width:100%;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:center;
+    }
+    .carousel-frame{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(57,213,255,.14);
+      background:#091321;
+      aspect-ratio:16/9;
+      display:grid;
+      place-items:center;
+    }
+    .carousel-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .carousel-copy{
+      padding:8px 4px;
+    }
+    .carousel-copy h4{
+      margin:0 0 8px;
+      font-size:24px;
+    }
+    .carousel-copy p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .carousel-meta{
+      display:grid;
+      gap:10px;
+    }
+    .carousel-meta .mini-note{
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(7,17,31,.52);
+      border:1px solid rgba(57,213,255,.10);
+      color:#dbe7fb;
+      font-size:14px;
+    }
+    .carousel-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid rgba(57,213,255,.18);
+      background:rgba(7,17,31,.78);
+      color:#eaf2ff;
+      cursor:pointer;
+      z-index:2;
+    }
+    .carousel-btn:hover{
+      background:rgba(16,32,58,.92);
+    }
+    .carousel-btn.prev{left:14px}
+    .carousel-btn.next{right:14px}
+    .carousel-dots{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:16px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+    }
+    .carousel-dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      border:none;
+      background:rgba(157,176,205,.45);
+      cursor:pointer;
+    }
+    .carousel-dot.active{
+      background:var(--cyan);
+      box-shadow:0 0 12px rgba(57,213,255,.55);
+    }
+
     @media (max-width: 1180px){
       .shell{grid-template-columns:1fr}
       .sidebar{position:relative;height:auto;border-right:none;border-bottom:1px solid rgba(57,213,255,.14)}
       .hero{grid-template-columns:1fr}
-      .cards,.price-cards,.metric-grid,.split,.scenario-grid{grid-template-columns:1fr}
+      .cards,.price-cards,.metric-grid,.split,.scenario-grid,.carousel-slide{grid-template-columns:1fr}
       .hero-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media (max-width: 700px){
@@ -390,6 +491,7 @@
           <div class="subtle">Designed to understand the app, the offer, the cost structure, and the business math without investor language.</div>
         </div>
         <div class="meta">
+          <a class="pill" href="storyboards.html">Storyboards</a>
           <span class="pill">Recurring subscription model</span>
           <span class="pill">Comparable premium tool category</span>
           <span class="pill">Contribution-margin focused</span>
@@ -804,16 +906,97 @@
           <p>This area is intentionally left open for a rotating visual section showing proposed screens, key views, and the visual product story.</p>
         </div>
         <div class="content">
-          <div class="carousel-placeholder">
-            <div>
-              <h4>Carousel placeholder for proposed product views</h4>
-              <p>
-                Use this space for a horizontally sliding showcase of the strongest app screens:
-                Terminal Core, Execution View, Timeline View, Signal Lock, Replay / Autopsy, and AI Command Center.
-                The role of this section is to make the product feel tangible and easy to understand before discussing operating math.
-              </p>
+          <div class="storyboard-carousel" id="storyboardCarousel">
+            <button class="carousel-btn prev" type="button" aria-label="Previous slide">&#10094;</button>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <div class="carousel-frame">
+                  <img src="storyboards/01-terminal-core.png" alt="Terminal Core storyboard">
+                </div>
+                <div class="carousel-copy">
+                  <h4>1. Terminal Core</h4>
+                  <p>The base workspace that gives the trader immediate chart, ladder, and flow context in one clean operating environment.</p>
+                  <div class="carousel-meta">
+                    <div class="mini-note"><strong>Purpose:</strong> establish the default daily workspace.</div>
+                    <div class="mini-note"><strong>Value:</strong> fast recognition of market state without screen clutter.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="carousel-frame">
+                  <img src="storyboards/02-exposure-ladder.png" alt="Exposure Ladder storyboard">
+                </div>
+                <div class="carousel-copy">
+                  <h4>2. Exposure Ladder</h4>
+                  <p>Price-anchored structure view showing the most important levels, including the king node and gatekeepers.</p>
+                  <div class="carousel-meta">
+                    <div class="mini-note"><strong>Purpose:</strong> make important levels obvious instantly.</div>
+                    <div class="mini-note"><strong>Value:</strong> better structure recognition than general charting tools.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="carousel-frame">
+                  <img src="storyboards/03-flow-grid.png" alt="Flow Grid storyboard">
+                </div>
+                <div class="carousel-copy">
+                  <h4>3. Flow Grid</h4>
+                  <p>Real-time options flow organized for fast reading: premium, strike, volume, unusual score, opening estimate, and sentiment.</p>
+                  <div class="carousel-meta">
+                    <div class="mini-note"><strong>Purpose:</strong> show what money is doing right now.</div>
+                    <div class="mini-note"><strong>Value:</strong> gives intent, not just price.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="carousel-frame">
+                  <img src="storyboards/04-execution-view.png" alt="Execution View storyboard">
+                </div>
+                <div class="carousel-copy">
+                  <h4>4. Execution View</h4>
+                  <p>Levels, projection, entry zone, invalidation, and targets all in one screen that pushes the user toward action.</p>
+                  <div class="carousel-meta">
+                    <div class="mini-note"><strong>Purpose:</strong> translate structure into a tradable setup.</div>
+                    <div class="mini-note"><strong>Value:</strong> this is where clarity starts becoming monetizable.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="carousel-frame">
+                  <img src="storyboards/05-timeline-view.png" alt="Timeline View storyboard">
+                </div>
+                <div class="carousel-copy">
+                  <h4>5. Timeline View</h4>
+                  <p>Time-based event sequence showing when flow became meaningful, when confirmation happened, and when acceleration arrived.</p>
+                  <div class="carousel-meta">
+                    <div class="mini-note"><strong>Purpose:</strong> identify timing, not just levels.</div>
+                    <div class="mini-note"><strong>Value:</strong> gives the product a stronger predictive feel.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="carousel-frame">
+                  <img src="storyboards/06-signal-lock.png" alt="Signal Lock storyboard">
+                </div>
+                <div class="carousel-copy">
+                  <h4>6. Signal Lock</h4>
+                  <p>The decision screen: direction, confidence, entry, stop, targets, and risk/reward compressed into one focused view.</p>
+                  <div class="carousel-meta">
+                    <div class="mini-note"><strong>Purpose:</strong> answer whether to act now.</div>
+                    <div class="mini-note"><strong>Value:</strong> this is the strongest conversion screen in the MVP set.</div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <button class="carousel-btn next" type="button" aria-label="Next slide">&#10095;</button>
+            <div class="carousel-dots"></div>
           </div>
+          <div class="note">Place the six storyboard PNG files in a <strong>storyboards</strong> folder in the same root as this page using the exact file names referenced above.</div>
         </div>
       </section>
 
@@ -838,5 +1021,43 @@
       </div>
     </main>
   </div>
+
+  <script>
+    (function(){
+      const carousel = document.getElementById('storyboardCarousel');
+      if(!carousel) return;
+      const track = carousel.querySelector('.carousel-track');
+      const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+      const prev = carousel.querySelector('.carousel-btn.prev');
+      const next = carousel.querySelector('.carousel-btn.next');
+      const dotsWrap = carousel.querySelector('.carousel-dots');
+      let index = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsWrap.querySelectorAll('.carousel-dot'));
+
+      function render(){
+        track.style.transform = 'translateX(' + (-index * 100) + '%)';
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      }
+
+      function goTo(i){
+        index = (i + slides.length) % slides.length;
+        render();
+      }
+
+      prev.addEventListener('click', () => goTo(index - 1));
+      next.addEventListener('click', () => goTo(index + 1));
+      render();
+    })();
+  </script>
 </body>
 </html>
